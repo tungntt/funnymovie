@@ -1,16 +1,16 @@
-<div class="row" *ngFor="let movie of movies">
+<div class="row" *ngFor="let movie of movies; let i = index">
     <div class="col-md-2">
     </div>
     <div class="col-md-10">
         <div class="col-md-5">
-            <iframe src="{{movie.url}}}"></iframe>
+            <iframe [src]='getSafeUrl(i)' frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-md-5">
             <h4>{{movie.title}}</h4>
-            <p jhiTranslate="home.movie.sharedBy">Shared By: {{movie.sharedBy}}</p>
+            <p>Shared By: {{movie.sharedBy}}</p>
             <p>{{movie.votedUp}} <span class="glyphicon glyphicon-thumbs-up">  {{movie.votedDown}}<span class="glyphicon glyphicon-thumbs-down"></span> </p>
             <div>
-                <p jhiTranslate="home.movie.description">Description: </p>
+                <p>Description: </p>
                 <p>{{movie.description}}</p>
             </div>
         </div>

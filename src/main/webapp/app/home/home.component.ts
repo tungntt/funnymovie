@@ -8,6 +8,7 @@ import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/user/account.model';
 import { MovieModel } from 'app/core/movie-render/movie.model';
 import { MovieRenderService } from 'app/core/movie-render/movie-render.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'jhi-home',
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     private accountService: AccountService,
     private loginModalService: LoginModalService,
     private movieRenderService: MovieRenderService,
+    private sanitizer: DomSanitizer,
     private eventManager: JhiEventManager
   ) {}
 
@@ -51,6 +53,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.movieRenderService.fetchAll().subscribe(movies => {
       this.movies = movies;
     });
+  }
+
+  getSafeUrl(index: number) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.movies[index].url);
   }
 
   login() {

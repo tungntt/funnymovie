@@ -6,6 +6,8 @@ import { JhiEventManager } from 'ng-jhipster';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/user/account.model';
+import { MovieModel } from 'app/core/movie-render/movie.model';
+import { MovieRenderService } from 'app/core/movie-render/movie-render.service';
 
 @Component({
   selector: 'jhi-home',
@@ -14,16 +16,19 @@ import { Account } from 'app/core/user/account.model';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   account: Account;
+  movies: MovieModel[];
   authSubscription: Subscription;
   modalRef: NgbModalRef;
 
   constructor(
     private accountService: AccountService,
     private loginModalService: LoginModalService,
+    private movieRenderService: MovieRenderService,
     private eventManager: JhiEventManager
   ) {}
 
   ngOnInit() {
+    this.loadAllMovies();
     this.accountService.identity().subscribe((account: Account) => {
       this.account = account;
     });
@@ -40,6 +45,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   isAuthenticated() {
     return this.accountService.isAuthenticated();
+  }
+
+  loadAllMovies() {
+    this.movieRenderService.fetchAll().subscribe(movies => {
+      this.movies = movies;
+    });
   }
 
   login() {

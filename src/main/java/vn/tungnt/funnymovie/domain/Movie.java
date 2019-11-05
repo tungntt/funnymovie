@@ -12,8 +12,8 @@ import java.io.Serializable;
  * @project funnymovie
  */
 @Entity
-@Table(name = "sharing_movie")
-public class Movie extends AbstractAuditingEntity implements Serializable {
+@Table(name = "movie")
+public class Movie implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
@@ -22,7 +22,7 @@ public class Movie extends AbstractAuditingEntity implements Serializable {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="email", nullable=false)
+    @JoinColumn(name="shared_by", nullable=false, referencedColumnName="email")
     private User user;
 
     @Column(name = "url")

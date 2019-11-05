@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "gitCompany": "",
+    "baseName": "funnymovie",
+    "packageName": "vn.tungnt.funnymovie",
+    "packageFolder": "vn/tungnt/funnymovie",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "maven",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "6.4.1",
+    "jwtSecretKey": "YjEwYTU1MDMxYWU4MTc4YzIyZDcxZmFiMzAwNDNiNmQ3NDMwNzU2Y2Q5MzZkNjViOGQyM2VlMTU2YjYxY2UxNDk2ODgwYzRhM2JlNTRiN2YxYmE4ZWViNjcwNDMwYzA4YTM1YjExMzcyNWE3NGU1YjIyN2ZjMDljNzM4MTlhZjk=",
+    "embeddableLaunchScript": false,
+    "clientTheme": "none",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "blueprints": []
+  }
+}

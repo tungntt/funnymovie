@@ -66,6 +66,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="url" type="varchar(256)"/>
+            <column name="video_id" type="varchar(100)"/>
             <column name="shared_by" type="varchar(191)">
                 <constraints nullable="false"/>
             </column>

@@ -28,6 +28,9 @@ public class Movie implements Serializable {
     @Column(name = "url")
     private String url;
 
+    @Column(name = "video_id")
+    private String videoId;
+
     public Long getId()
     {
         return id;
@@ -58,9 +61,17 @@ public class Movie implements Serializable {
         this.url = url;
     }
 
+    public String getVideoId() {
+        return videoId;
+    }
+
+    public void setVideoId(final String videoId) {
+        this.videoId = videoId;
+    }
+
     @Override
     public String toString() {
-        return "Movie{" + "id=" + id + ", user=" + user + ", url='" + url + '\'' + '}';
+        return "Movie{" + "id=" + id + ", user=" + user + ", url='" + url + '\'' + ", videoId='" + videoId + '\'' + '}';
     }
 }
 

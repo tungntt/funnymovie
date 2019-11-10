@@ -14,6 +14,7 @@ import vn.tungnt.funnymovie.service.dto.MovieDTO;
 public interface MovieMapper extends EntityMapper<MovieDTO, Movie> {
 
     @Mapping(source = "user.email", target = "sharedBy")
+    @Mapping(target = "url", expression = "java(\"https://www.youtube.com/embed/\" + entity.getVideoId() )")
     @Override
     MovieDTO toDto(Movie entity);
 

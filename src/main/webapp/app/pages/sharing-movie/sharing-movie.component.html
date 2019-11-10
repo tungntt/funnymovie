@@ -1,8 +1,34 @@
 <div>
-    <div>
-        Youtube Link: <input placeholder="" pattern=""/>
-    </div>
-    <div>
-        <button>Submit</button>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form name="form" role="form" (ngSubmit)="submitMovieUrl()" [formGroup]="submitMovieForm">
+                <div class="form-group">
+
+                    <label class="form-control-label" for="movieUrl">Youtube Link</label>
+                    <input type="text" class="form-control" id="movieUrl" name="movieUrl" formControlName="movieUrl">
+                    <div *ngIf="submitMovieForm.get('movieUrl').invalid && (submitMovieForm.get('movieUrl').dirty || submitMovieForm.get('movieUrl').touched)">
+                        <small class="form-text text-danger" *ngIf="submitMovieForm.get('movieUrl').errors.required">
+                            Youtube Link is required.
+                        </small>
+                        <small class="form-text text-danger" *ngIf="submitMovieForm.get('movieUrl').errors.minlength">
+                            Youtube is required to be at least 1 character.
+                        </small>
+                        <small class="form-text text-danger" *ngIf="submitMovieForm.get('movieUrl').errors.maxlength">
+                            Youtube cannot be longer than 50 characters.
+                        </small>
+                        <small class="form-text text-danger" *ngIf="submitMovieForm.get('movieUrl').errors.pattern">
+                            It's not youtube link
+                        </small>
+                    </div>
+                    <div *ngIf="isSavedSuccess">
+                        <small class="form-text text-danger">
+                            Youtube Video has been shared.
+                        </small>
+                    </div>
+                </div>
+
+                <button type="submit" [disabled]="submitMovieForm.invalid" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
     </div>
 </div>

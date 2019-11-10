@@ -6,8 +6,8 @@ import { JhiEventManager } from 'ng-jhipster';
 import { LoginModalService } from 'app/core/login/login-modal.service';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/user/account.model';
-import { MovieModel } from 'app/core/movie-render/movie.model';
-import { MovieRenderService } from 'app/core/movie-render/movie-render.service';
+import { MovieModel } from 'app/core/movie/movie.model';
+import { MovieService } from 'app/core/movie/movie.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private accountService: AccountService,
     private loginModalService: LoginModalService,
-    private movieRenderService: MovieRenderService,
+    private movieService: MovieService,
     private sanitizer: DomSanitizer,
     private eventManager: JhiEventManager
   ) {}
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   loadAllMovies() {
-    this.movieRenderService.fetchAll().subscribe(movies => {
+    this.movieService.fetchAll().subscribe(movies => {
       this.movies = movies;
     });
   }

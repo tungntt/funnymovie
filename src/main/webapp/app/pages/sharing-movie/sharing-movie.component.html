@@ -20,14 +20,13 @@
                             It's not youtube link
                         </small>
                     </div>
-                    <div *ngIf="isSavedSuccess">
-                        <small class="form-text text-danger">
-                            Youtube Video has been shared.
-                        </small>
-                    </div>
                 </div>
-
                 <button type="submit" [disabled]="submitMovieForm.invalid" class="btn btn-primary">Submit</button>
+                <div class="form-group" *ngIf="isSavedSuccess">
+                    <small class="form-text text-danger">
+                        Youtube Video has been shared.
+                    </small>
+                </div>
             </form>
         </div>
     </div>

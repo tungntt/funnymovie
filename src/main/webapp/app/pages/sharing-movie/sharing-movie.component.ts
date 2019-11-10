@@ -29,6 +29,8 @@ export class SharingMovieComponent implements OnInit {
 
   submitMovieUrl(): void {
     this.movieRequest.url = this.submitMovieForm.get('movieUrl').value;
-    this.movieService.saveMovieUrl(this.movieRequest).subscribe(response => {});
+    this.movieService.saveMovieUrl(this.movieRequest).subscribe(response => {
+      this.isSavedSuccess = response;
+    });
   }
 }

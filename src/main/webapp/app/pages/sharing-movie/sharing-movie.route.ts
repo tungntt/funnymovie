@@ -6,6 +6,6 @@ export const sharingMovieRoute: Route = {
   component: SharingMovieComponent,
   data: {
     authorities: [],
-    pageTitle: 'sharing.title'
+    pageTitle: 'share-movie.title'
   }
 };

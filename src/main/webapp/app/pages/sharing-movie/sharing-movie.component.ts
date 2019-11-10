@@ -13,7 +13,7 @@ const YOUTUBE_LINK_REGEX =
 })
 export class SharingMovieComponent implements OnInit {
   movieRequest: MovieModel;
-  isSavedSuccess: boolean = false;
+  isSavedSuccess = false;
 
   submitMovieForm = this.fb.group({
     movieUrl: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50), Validators.pattern(YOUTUBE_LINK_REGEX)]]
